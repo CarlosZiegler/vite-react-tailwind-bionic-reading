@@ -12,7 +12,6 @@ import {
 } from '@mantine/core'
 import { Check, BrandGithub } from 'tabler-icons-react'
 import image from '../../assets/bionic.svg'
-import { BionicReaderPage } from '../../components/BionicReaderPage'
 import { Link } from 'react-router-dom'
 
 const useStyles = createStyles((theme) => ({
@@ -78,7 +77,7 @@ export function Home() {
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              A <span className={classes.highlight}>modern</span> Bionic Reading
+              A <span className={classes.highlight}>modern</span> Bionic reading
               tool
             </Title>
             <Text color="dimmed" mt="md">

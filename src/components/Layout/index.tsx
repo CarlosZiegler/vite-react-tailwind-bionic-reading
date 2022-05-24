@@ -11,7 +11,7 @@ import {
 } from 'tabler-icons-react'
 
 import { FCC } from '../../types'
-import { HeaderAction, HeaderActionProps } from '../Header'
+import { HeaderAction } from '../Header'
 
 const links = [
   {
@@ -19,26 +19,8 @@ const links = [
     label: 'About',
   },
   {
-    link: '/about',
-    label: 'Features',
-  },
-  {
-    link: '#2',
-    label: 'Support',
-    links: [
-      {
-        link: '/faq',
-        label: 'FAQ',
-      },
-      {
-        link: '/demo',
-        label: 'Book a demo',
-      },
-      {
-        link: '/forums',
-        label: 'Forums',
-      },
-    ],
+    link: '/playground',
+    label: 'Playground',
   },
 ]
 

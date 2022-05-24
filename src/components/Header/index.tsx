@@ -15,6 +15,7 @@ import { ChevronDown } from 'tabler-icons-react'
 import { ThemeToggle } from '../ThemeToggle'
 import { LanguagePicker } from '../LanguagePicker'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const HEADER_HEIGHT = 60
 
@@ -74,13 +75,15 @@ export interface HeaderActionProps {
 
 export function HeaderAction({ links }: HeaderActionProps) {
   const { classes } = useStyles()
+  const { t } = useTranslation()
   const [opened, toggleOpened] = useBooleanToggle(false)
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+      <Menu.Item key={item.link}>{t(link.label)}</Menu.Item>
     ))
 
     if (menuItems) {
+      console.log(menuItems)
       return (
         <Menu
           key={link.label}
@@ -90,16 +93,12 @@ export function HeaderAction({ links }: HeaderActionProps) {
           placement="end"
           gutter={1}
           control={
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
+            <Link to={link.link} className={classes.link}>
               <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
+                <span className={classes.linkLabel}>{t(link.label)}</span>
                 <ChevronDown size={12} />
               </Center>
-            </a>
+            </Link>
           }
         >
           {menuItems}
@@ -108,14 +107,9 @@ export function HeaderAction({ links }: HeaderActionProps) {
     }
 
     return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        {link.label}
-      </a>
+      <Link key={link.label} to={link.link} className={classes.link}>
+        {t(link.label)}
+      </Link>
     )
   })
 

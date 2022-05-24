@@ -14,12 +14,17 @@ import { NotFound } from './components/NotFound'
 import './translations/i18n'
 import { Home } from './pages/Home'
 import { BionicReaderPage } from './components/BionicReaderPage'
+import { AboutPage } from './pages/About'
 
 function App() {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark')
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
-
+  const aboutContent = {
+    title: 'Integrate effortlessly with any technology stack',
+    description:
+      'Every once in a while, you’ll see a Golbat that’s missing some fangs. This happens when hunger drives it to try biting a Steel-type Pokémon.',
+  }
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}
@@ -34,11 +39,11 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Layout />}>
-                <Route path="/playground" element={<BionicReaderPage />} />
                 <Route index element={<Home />} />
+                <Route path="playground" element={<BionicReaderPage />} />
+                <Route path="about" element={<AboutPage {...aboutContent} />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
-
-              <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
         </NotificationsProvider>
