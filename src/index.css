@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.bio-letter {
+  color: black;
+  font-weight: 600;
+}
+
+.t-text {
+  color: gray;
+}
+
+/* config tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
